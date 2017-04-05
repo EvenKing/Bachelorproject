@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#039BE5</color>
+    <color name="colorPrimaryLight">#E0E0E0</color>
+    <color name="colorAccent">#C6FF00</color>
+    <color name="primary_text">#424242</color>
+    <color name="secondary_text">#757575</color>
+    <color name="light_grey">#9E9E9E</color>
+    <color name="white">#FFF</color>
+    <color name="hintColor">#B3E5FC</color>
+    <color name="tab_background_selected">#29B6F6</color>
+    <color name="tab_background_unselected">#03A9F4</color>
+    <color name="tabIndicatorColor">#C6FF00</color>
+
+    <color name="event_red">#F44336</color>
+    <color name="event_yellow">#FFC400</color>
+    <color name="event_green">#64DD17</color>
+</resources>

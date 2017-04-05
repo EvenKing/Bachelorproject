@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="no.nc_spectrum.hendelseapplication.SettingsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:layout_below="@+id/settings_toolbar"
+        android:id="@+id/notifications_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Push varsler: "
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <RelativeLayout
+        android:id="@+id/highrisk_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notifications_title"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+        <TextView
+            android:id="@+id/highrisk_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Høy Risiko (Default)"
+            android:textSize="18sp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/highrisk_text"
+            android:layout_alignParentRight="true"
+            android:id="@+id/high_checkBox"
+            android:checked="true"
+            android:buttonTint="@color/event_red"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mediumrisk_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/highrisk_block"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+        <TextView
+            android:id="@+id/mediumrisk_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Middels Risiko"
+            android:textSize="18sp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/mediumrisk_text"
+            android:layout_alignParentRight="true"
+            android:id="@+id/medium_checkBox"
+            android:buttonTint="@color/event_yellow"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lowrisk_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mediumrisk_block"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+        <TextView
+            android:id="@+id/lowrisk_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lav Risiko"
+            android:textSize="18sp"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/lowrisk_text"
+            android:layout_alignParentRight="true"
+            android:id="@+id/low_checkBox"
+            android:buttonTint="@color/event_green"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/web_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lowrisk_block"
+        android:text="Besøk vår Nettside"
+        android:layout_margin="16dp"
+        android:onClick="onClickWebBrowser"/>
+
+    <Button
+        android:id="@+id/call_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/web_button"
+        android:text="Ring oss"
+        android:layout_marginTop="8dp"
+        android:layout_margin="16dp"
+        android:onClick="onClickMakeCalls"/>
+
+</RelativeLayout>
