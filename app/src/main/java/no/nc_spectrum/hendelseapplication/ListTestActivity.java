@@ -6,9 +6,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -44,6 +45,44 @@ public class ListTestActivity extends AppCompatActivity {
         downloadTask.execute(strUrl);
         mListView = (ListView) findViewById(R.id.lv_events);
 
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                try {
+                    HashMap<String, Object> event = findHashMapAt(position, events);
+                    //String infotext = event.get("info_text").toString();
+
+                    //Toast.makeText(context, "Info: " + info , Toast.LENGTH_LONG).show();
+
+
+                    //Starts new activity
+                    Intent i = new Intent(context, EventInfoActivity.class);
+                    i.putExtra("event", event);
+
+                    startActivity(i);
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    private HashMap<String, Object> findHashMapAt(int position, List<HashMap<String, Object>> list)
+    {
+        for ( HashMap<String, Object> hm : list )
+        {
+            try {
+                if ((Integer) hm.get("position") == position) {
+                    return hm;
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
 
@@ -129,7 +168,7 @@ public class ListTestActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
-            Toast.makeText(context, "userID: " + userID + "\n" + result , Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "userID: " + userID + "\n" + result , Toast.LENGTH_LONG).show();
 
             ListViewLoaderTask listViewLoaderTask = new ListViewLoaderTask();
             listViewLoaderTask.execute(result);
@@ -174,10 +213,12 @@ public class ListTestActivity extends AppCompatActivity {
 
             mListView.setAdapter(adapter);
 
-            /*for (int i = 0; i < adapter.getCount(); i++) { //To get the position of each listview item later...
+            for (int i = 0; i < adapter.getCount(); i++) { //To get the position of each listview item later...
                 HashMap<String, Object> hm = (HashMap<String, Object>) adapter.getItem(i);
                 hm.put("position", i);
-            }*/
+            }
+
+            adapter.notifyDataSetChanged();
 
         }
     }

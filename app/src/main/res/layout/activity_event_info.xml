@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="no.nc_spectrum.hendelseapplication.EventInfoActivity">
+
+
+        <ImageView
+            android:id="@+id/iv_info_smiley"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/ic_medium_smiley" />
+
+        <TextView
+            android:id="@+id/tv_signature_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Signature: "
+            android:textSize="14sp"
+            android:layout_toRightOf="@+id/iv_info_smiley"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="SIGNATURE HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/tv_signature_label"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_risk_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Risk: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_signature"
+            android:layout_toRightOf="@+id/iv_info_smiley"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="RISK LEVEL HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_signature"
+            android:layout_toRightOf="@+id/tv_risk_label"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_timestamp_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Timestamp: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_risk"
+            android:layout_marginTop="48dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="TIMESTAMP HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_risk"
+            android:layout_toRightOf="@id/tv_timestamp_label"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="16dp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_sid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="SID: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_timestamp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_sid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="SID HERE"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_timestamp"
+            android:layout_toRightOf="@id/tv_sid_label"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_cid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="CID: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_timestamp"
+            android:layout_toRightOf="@+id/tv_sid"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_cid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="CID HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_timestamp"
+            android:layout_toRightOf="@id/tv_cid_label"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_srcip_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Source IP: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_cid"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="56dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_srcip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="SRC IP HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_cid"
+            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_dstip_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Destination IP: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_srcip"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_dstip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="DST IP HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_srcip"
+            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_srcport_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Source Port: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_dstip"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="38dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_srcport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="SRC PORT HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_dstip"
+            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_dstport_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="Destination Port: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_srcport"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_dstport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="DST PORT HERE"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_srcport"
+            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_infotext_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="More Info: "
+            android:textSize="14sp"
+            android:layout_below="@id/tv_dstport"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_infotext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="INFO TEXT HERE..."
+            android:textSize="12sp"
+            android:layout_below="@id/tv_infotext_label"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

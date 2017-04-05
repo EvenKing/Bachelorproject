@@ -66,22 +66,22 @@ public class EventJSONParser {
             signature = jEvent.getString("signature");
             timestamp = jEvent.getString("timestamp");
             priority = jEvent.getString("priority");
-            /*src_ip = jEvent.getString("src_ip"); //TODO: Add later (might be null)
+            src_ip = jEvent.getString("src_ip"); //TODO: Add later (might be null)
             dst_ip = jEvent.getString("dst_ip");
             src_port = jEvent.getString("src_port");
-            dst_port = jEvent.getString("dst_port"); */
-            //info_text = jEvent.toString(); //TODO: Does this work?
+            dst_port = jEvent.getString("dst_port");
+            info_text = jEvent.toString(); //TODO: Does this work?
 
 
             event.put("sid", sid);
             event.put("cid", cid);
             event.put("signature", signature);
             event.put("timestamp", timestamp);
-            /*event.put("src_ip", src_ip); //TODO: Add later (might be null)
+            event.put("src_ip", src_ip); //TODO: Add later (might be null)
             event.put("dst_ip", dst_ip);
             event.put("src_port", src_port);
-            event.put("dst_port", dst_port);*/
-            //event.put("info_text", info_text);
+            event.put("dst_port", dst_port);
+            event.put("info_text", info_text);
 
             event.put("priority", priority);
             switch (priority){ //TODO: Change this?

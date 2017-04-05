@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/CustomActionBarTheme">
         <activity
-            android:name="no.nc_spectrum.hendelseapplication.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/CustomActionBarTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="no.nc_spectrum.hendelseapplication.EventTabsActivity"
+            android:name=".EventTabsActivity"
             android:label="Hendelser"
             android:theme="@style/CustomActionBarTheme.NoActionBar">
             <intent-filter>
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="no.nc_spectrum.hendelseapplication.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="Innstillinger"
             android:theme="@style/CustomActionBarTheme.NoActionBar">
             <meta-data
@@ -44,7 +44,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="no.nc_spectrum.hendelseapplication.ListTestActivity"></activity>
+        <activity android:name=".ListTestActivity" />
+        <activity android:name=".EventInfoActivity"></activity>
     </application>
 
 </manifest>
