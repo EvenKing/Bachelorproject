@@ -32,7 +32,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 public class EventTabsActivity extends AppCompatActivity {
@@ -156,8 +155,12 @@ public class EventTabsActivity extends AppCompatActivity {
 
         private ListView mListViewAll;
         private ListView mListViewHigh;
+        private ListView mListViewMedium;
+        private ListView mListViewLow;
         private List<HashMap<String, Object>> allEvents;
         private List<HashMap<String, Object>> highEvents;
+        private List<HashMap<String, Object>> mediumEvents;
+        private List<HashMap<String, Object>> lowEvents;
 
         public PlaceholderFragment() {
         }
@@ -202,7 +205,6 @@ public class EventTabsActivity extends AppCompatActivity {
                     }
                 });
 
-
                 return rootView;
             }
             else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2){
@@ -217,7 +219,7 @@ public class EventTabsActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                         try {
-                            HashMap<String, Object> event = findHashMapAt(position, allEvents);
+                            HashMap<String, Object> event = findHashMapAt(position, highEvents);
 
                             //Starts new activity
                             Intent i = new Intent(getActivity(), EventInfoActivity.class);
@@ -231,11 +233,33 @@ public class EventTabsActivity extends AppCompatActivity {
                     }
                 });
 
-
                 return rootView;
             }
             else if(getArguments().getInt(ARG_SECTION_NUMBER) == 3){
                 View rootView = inflater.inflate(R.layout.fragment_sub_page03, container, false);
+
+                DownloadTaskMedium downloadTaskMedium = new DownloadTaskMedium();
+                downloadTaskMedium.execute(strUrl);
+
+                mListViewMedium = (ListView) rootView.findViewById(R.id.lv_events_medium);
+
+                mListViewMedium.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                        try {
+                            HashMap<String, Object> event = findHashMapAt(position, mediumEvents);
+
+                            //Starts new activity
+                            Intent i = new Intent(getActivity(), EventInfoActivity.class);
+                            i.putExtra("event", event);
+
+                            startActivity(i);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
 
                 return rootView;
             }
@@ -243,10 +267,37 @@ public class EventTabsActivity extends AppCompatActivity {
             else if(getArguments().getInt(ARG_SECTION_NUMBER) == 4){
                 View rootView = inflater.inflate(R.layout.fragment_sub_page04, container, false);
 
+                DownloadTaskLow downloadTaskLow = new DownloadTaskLow();
+                downloadTaskLow.execute(strUrl);
+
+                mListViewLow = (ListView) rootView.findViewById(R.id.lv_events_low);
+
+                mListViewLow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                        try {
+                            HashMap<String, Object> event = findHashMapAt(position, lowEvents);
+
+                            //Starts new activity
+                            Intent i = new Intent(getActivity(), EventInfoActivity.class);
+                            i.putExtra("event", event);
+
+                            startActivity(i);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
                 return rootView;
             }
             else{
                 View rootView = inflater.inflate(R.layout.fragment_sub_page01, container, false);
+
+                DownloadTaskAll downloadTaskAll = new DownloadTaskAll();
+                downloadTaskAll.execute(strUrl);
+                mListViewAll = (ListView) rootView.findViewById(R.id.lv_events_all);
 
                 return rootView;
             }
@@ -268,7 +319,7 @@ public class EventTabsActivity extends AppCompatActivity {
             return null;
         }
 
-        private List<HashMap<String, Object>> filterList (List<HashMap<String, Object>> list , int priority )
+        /*private List<HashMap<String, Object>> filterList (List<HashMap<String, Object>> list , int priority )
         {
             try {
                 for (Iterator<HashMap<String, Object>> iter = list.iterator(); iter.hasNext(); ) {
@@ -284,10 +335,10 @@ public class EventTabsActivity extends AppCompatActivity {
             }
 
             return list;
-        }
+        }*/
 
 
-        private String downloadUrl(String strUrl) throws IOException {
+        private String downloadUrl(String strUrl, String priority) throws IOException {
 
             String data = "";
             int tmp;
@@ -300,6 +351,7 @@ public class EventTabsActivity extends AppCompatActivity {
                 URL url = new URL(strUrl);
 
                 String urlParams = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");
+                urlParams += "&" + URLEncoder.encode("prioLvl", "UTF-8") + "=" + URLEncoder.encode(priority, "UTF-8");
 
                 if (httpURLConnection != null) httpURLConnection.disconnect();
                 httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -313,16 +365,6 @@ public class EventTabsActivity extends AppCompatActivity {
                 if (is != null) is.close();
 
                 is = httpURLConnection.getInputStream();
-
-            /*
-            while((tmp=is.read())!=-1){
-                data+= (char)tmp;
-            }
-
-            is.close();
-            */
-
-
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
                 StringBuffer sb = new StringBuffer();
@@ -343,7 +385,7 @@ public class EventTabsActivity extends AppCompatActivity {
                 return "Exception: "+ e.toString();
             } finally {
 
-                //is.close();
+
                 httpURLConnection.disconnect();
 
 
@@ -359,7 +401,7 @@ public class EventTabsActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... url) {
                 try {
-                    data = downloadUrl(url[0]);
+                    data = downloadUrl(url[0] , "0");
                 } catch (Exception e) {
                     Log.d("Background Task", e.toString());
                 }
@@ -368,8 +410,6 @@ public class EventTabsActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(String result) {
-
-                //Toast.makeText(context, "userID: " + userID + "\n" + result , Toast.LENGTH_LONG).show();
 
                 ListViewLoaderTaskAll listViewLoaderTaskAll = new ListViewLoaderTaskAll();
                 listViewLoaderTaskAll.execute(result);
@@ -385,8 +425,8 @@ public class EventTabsActivity extends AppCompatActivity {
             protected SimpleAdapter doInBackground(String... strJson) {
                 try {
                     jObject = new JSONObject(strJson[0]);
-                    EventJSONParser tracksJSONParser = new EventJSONParser();
-                    tracksJSONParser.parse(jObject);
+                    EventJSONParser eventJSONParser = new EventJSONParser();
+                    eventJSONParser.parse(jObject);
                 } catch (Exception e) {
                     Log.d("JSON Exception1", e.toString());
                 }
@@ -432,7 +472,7 @@ public class EventTabsActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... url) {
                 try {
-                    data = downloadUrl(url[0]);
+                    data = downloadUrl(url[0], "7" );
                 } catch (Exception e) {
                     Log.d("Background Task", e.toString());
                 }
@@ -441,8 +481,6 @@ public class EventTabsActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(String result) {
-
-                //Toast.makeText(context, "userID: " + userID + "\n" + result , Toast.LENGTH_LONG).show();
 
                 ListViewLoaderTaskHigh listViewLoaderTaskHigh = new ListViewLoaderTaskHigh();
                 listViewLoaderTaskHigh.execute(result);
@@ -458,8 +496,8 @@ public class EventTabsActivity extends AppCompatActivity {
             protected SimpleAdapter doInBackground(String... strJson) {
                 try {
                     jObject = new JSONObject(strJson[0]);
-                    EventJSONParser tracksJSONParser = new EventJSONParser();
-                    tracksJSONParser.parse(jObject);
+                    EventJSONParser eventJSONParser = new EventJSONParser();
+                    eventJSONParser.parse(jObject);
                 } catch (Exception e) {
                     Log.d("JSON Exception1", e.toString());
                 }
@@ -471,7 +509,7 @@ public class EventTabsActivity extends AppCompatActivity {
                 try {
                     highEvents = eventJSONParser.parse(jObject);
 
-                    highEvents = filterList(highEvents, 7);
+                    //highEvents = filterList(highEvents, 7); //TODO: Change this method
 
                 } catch (Exception e) {
                     Log.d("Exception", e.toString());
@@ -489,6 +527,152 @@ public class EventTabsActivity extends AppCompatActivity {
             protected void onPostExecute(SimpleAdapter adapter) {
 
                 mListViewHigh.setAdapter(adapter);
+
+
+                for (int i = 0; i < adapter.getCount(); i++) { //To get the position of each listview item later...
+                    HashMap<String, Object> hm = (HashMap<String, Object>) adapter.getItem(i);
+                    hm.put("position", i);
+                }
+
+                adapter.notifyDataSetChanged();
+
+            }
+        }
+
+
+        private class DownloadTaskMedium extends AsyncTask<String, Integer, String> {
+            String data = null;
+
+            @Override
+            protected String doInBackground(String... url) {
+                try {
+                    data = downloadUrl(url[0] , "6"); //TODO: Change priority level here
+                } catch (Exception e) {
+                    Log.d("Background Task", e.toString());
+                }
+                return data;
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+
+                ListViewLoaderTaskMedium listViewLoaderTaskMedium = new ListViewLoaderTaskMedium();
+                listViewLoaderTaskMedium.execute(result);
+
+            }
+        }
+
+        private class ListViewLoaderTaskMedium extends AsyncTask<String, Void, SimpleAdapter> {
+
+            JSONObject jObject;
+
+            @Override
+            protected SimpleAdapter doInBackground(String... strJson) {
+                try {
+                    jObject = new JSONObject(strJson[0]);
+                    EventJSONParser eventJSONParser = new EventJSONParser();
+                    eventJSONParser.parse(jObject);
+                } catch (Exception e) {
+                    Log.d("JSON Exception1", e.toString());
+                }
+
+                EventJSONParser eventJSONParser = new EventJSONParser();
+
+                mediumEvents = null;
+
+                try {
+                    mediumEvents = eventJSONParser.parse(jObject);
+
+                    //mediumEvents = filterList(mediumEvents, 6); //TODO: Change this method
+
+                } catch (Exception e) {
+                    Log.d("Exception", e.toString());
+                }
+
+
+                String[] from = {"signature", "timestamp", "priority_icon" };
+                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley };
+                SimpleAdapter adapter = new SimpleAdapter(getActivity(), mediumEvents, R.layout.lv_events_layout, from, to);
+
+                return adapter;
+            }
+
+            @Override
+            protected void onPostExecute(SimpleAdapter adapter) {
+
+                mListViewMedium.setAdapter(adapter);
+
+
+                for (int i = 0; i < adapter.getCount(); i++) { //To get the position of each listview item later...
+                    HashMap<String, Object> hm = (HashMap<String, Object>) adapter.getItem(i);
+                    hm.put("position", i);
+                }
+
+                adapter.notifyDataSetChanged();
+
+            }
+        }
+
+
+        private class DownloadTaskLow extends AsyncTask<String, Integer, String> {
+            String data = null;
+
+            @Override
+            protected String doInBackground(String... url) {
+                try {
+                    data = downloadUrl(url[0] , "5"); //TODO: CHANGE HERE!
+                } catch (Exception e) {
+                    Log.d("Background Task", e.toString());
+                }
+                return data;
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+
+                ListViewLoaderTaskLow listViewLoaderTaskLow = new ListViewLoaderTaskLow();
+                listViewLoaderTaskLow.execute(result);
+
+            }
+        }
+
+        private class ListViewLoaderTaskLow extends AsyncTask<String, Void, SimpleAdapter> {
+
+            JSONObject jObject;
+
+            @Override
+            protected SimpleAdapter doInBackground(String... strJson) {
+                try {
+                    jObject = new JSONObject(strJson[0]);
+                    EventJSONParser eventJSONParser = new EventJSONParser();
+                    eventJSONParser.parse(jObject);
+                } catch (Exception e) {
+                    Log.d("JSON Exception1", e.toString());
+                }
+
+                EventJSONParser eventJSONParser = new EventJSONParser();
+
+                lowEvents = null;
+
+                try {
+                    lowEvents = eventJSONParser.parse(jObject);
+
+                } catch (Exception e) {
+                    Log.d("Exception", e.toString());
+                }
+
+
+                String[] from = {"signature", "timestamp", "priority_icon" };
+                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley };
+                SimpleAdapter adapter = new SimpleAdapter(getActivity(), lowEvents, R.layout.lv_events_layout, from, to);
+
+                return adapter;
+            }
+
+            @Override
+            protected void onPostExecute(SimpleAdapter adapter) {
+
+                mListViewLow.setAdapter(adapter);
 
 
                 for (int i = 0; i < adapter.getCount(); i++) { //To get the position of each listview item later...
@@ -543,9 +727,6 @@ public class EventTabsActivity extends AppCompatActivity {
             return null;
         }
     }
-
-
-
 
 
 }

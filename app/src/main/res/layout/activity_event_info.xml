@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Risk: "
+            android:text="Priority: "
             android:textSize="14sp"
             android:layout_below="@id/tv_signature"
             android:layout_toRightOf="@+id/iv_info_smiley"
