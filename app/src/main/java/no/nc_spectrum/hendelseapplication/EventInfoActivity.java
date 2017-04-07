@@ -11,6 +11,8 @@ import java.util.HashMap;
 public class EventInfoActivity extends AppCompatActivity {
 
     private HashMap<String, Object> event;
+
+    /*
     private String sid = "";
     private String cid = "";
     private String signature = "";
@@ -21,6 +23,7 @@ public class EventInfoActivity extends AppCompatActivity {
     private String src_port = "";
     private String dst_port = "";
     private String info_text = "";
+    */
 
     TextView tv_signature, tv_sid, tv_cid, tv_timestamp, tv_risk, tv_srcip, tv_dstip, tv_srcport, tv_dstport, tv_infotext;
 

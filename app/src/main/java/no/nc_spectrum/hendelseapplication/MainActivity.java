@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     /*Toast.makeText(context, "NAME: " + NAME + "\nPASSWORD: " + PASSWORD +
                             "\nUSERID: " + USERID , Toast.LENGTH_LONG).show();*/
 
-                    Intent i = new Intent(context, ListTestActivity.class);
+                    Intent i = new Intent(context, EventTabsActivity.class);
 
                     i.putExtra("userName", NAME);
                     i.putExtra("userPass", PASSWORD);
