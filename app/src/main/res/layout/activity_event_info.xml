@@ -24,17 +24,17 @@
             android:layout_marginBottom="16dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            app:srcCompat="@drawable/ic_medium_smiley" />
+            app:srcCompat="@drawable/ic_default_smiley" />
 
         <TextView
             android:id="@+id/tv_signature_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Signature: "
+            android:text="@string/signature_hint"
             android:textSize="14sp"
             android:layout_toRightOf="@+id/iv_info_smiley"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:layout_marginRight="12dp"
             />
 
@@ -47,16 +47,16 @@
             android:textSize="14sp"
             android:layout_alignParentRight="true"
             android:layout_toRightOf="@+id/tv_signature_label"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="36dp"
             android:layout_marginRight="16dp"
             />
 
         <TextView
-            android:id="@+id/tv_risk_label"
+            android:id="@+id/tv_priority_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Priority: "
+            android:text="@string/priority_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_signature"
             android:layout_toRightOf="@+id/iv_info_smiley"
@@ -65,7 +65,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_risk"
+            android:id="@+id/tv_priority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/primary_text"
@@ -73,7 +73,7 @@
             android:textSize="14sp"
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_signature"
-            android:layout_toRightOf="@+id/tv_risk_label"
+            android:layout_toRightOf="@+id/tv_priority_label"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             />
@@ -83,10 +83,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Timestamp: "
+            android:text="@string/timestamp_hint"
             android:textSize="14sp"
-            android:layout_below="@id/tv_risk"
-            android:layout_marginTop="48dp"
+            android:layout_below="@id/tv_priority"
+            android:layout_marginTop="36dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="12dp"
             />
@@ -99,9 +99,9 @@
             android:text="TIMESTAMP HERE"
             android:textSize="14sp"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/tv_risk"
+            android:layout_below="@id/tv_priority"
             android:layout_toRightOf="@id/tv_timestamp_label"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="36dp"
             android:layout_marginRight="16dp"
             />
 
@@ -111,10 +111,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="SID: "
+            android:text="@string/sid_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_timestamp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             />
@@ -128,7 +128,7 @@
             android:textSize="14sp"
             android:layout_below="@id/tv_timestamp"
             android:layout_toRightOf="@id/tv_sid_label"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             />
 
@@ -137,11 +137,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="CID: "
+            android:text="@string/cid_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_timestamp"
             android:layout_toRightOf="@+id/tv_sid"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="12dp"
             />
@@ -156,7 +156,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_timestamp"
             android:layout_toRightOf="@id/tv_cid_label"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             />
 
@@ -166,10 +166,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Source IP: "
+            android:text="@string/srcip_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_cid"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="56dp"
             />
@@ -184,7 +184,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_cid"
             android:layout_toRightOf="@id/tv_srcip_label"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             />
 
@@ -193,7 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Destination IP: "
+            android:text="@string/dstip_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_srcip"
             android:layout_marginTop="20dp"
@@ -220,10 +220,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Source Port: "
+            android:text="@string/srcport_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_dstip"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="38dp"
             />
@@ -238,7 +238,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_dstip"
             android:layout_toRightOf="@id/tv_srcip_label"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             />
 
@@ -247,7 +247,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="Destination Port: "
+            android:text="@string/dstport_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_srcport"
             android:layout_marginTop="20dp"
@@ -274,10 +274,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_text"
-            android:text="More Info: "
+            android:text="@string/moreinfo_hint"
             android:textSize="14sp"
             android:layout_below="@id/tv_dstport"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
             />
 

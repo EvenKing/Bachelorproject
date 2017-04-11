@@ -12,22 +12,9 @@ public class EventInfoActivity extends AppCompatActivity {
 
     private HashMap<String, Object> event;
 
-    /*
-    private String sid = "";
-    private String cid = "";
-    private String signature = "";
-    private String timestamp = "";
-    private String priority = "";
-    private String src_ip = "";
-    private String dst_ip = "";
-    private String src_port = "";
-    private String dst_port = "";
-    private String info_text = "";
-    */
+    private TextView tv_signature, tv_sid, tv_cid, tv_timestamp, tv_risk, tv_srcip, tv_dstip, tv_srcport, tv_dstport, tv_infotext;
 
-    TextView tv_signature, tv_sid, tv_cid, tv_timestamp, tv_risk, tv_srcip, tv_dstip, tv_srcport, tv_dstport, tv_infotext;
-
-    ImageView iv_priorityicon;
+    private ImageView iv_priorityicon;
 
 
     @Override
@@ -39,7 +26,7 @@ public class EventInfoActivity extends AppCompatActivity {
         tv_sid = (TextView) findViewById(R.id.tv_sid);
         tv_cid = (TextView) findViewById(R.id.tv_cid);
         tv_timestamp = (TextView) findViewById(R.id.tv_timestamp);
-        tv_risk = (TextView) findViewById(R.id.tv_risk);
+        tv_risk = (TextView) findViewById(R.id.tv_priority);
         tv_srcip = (TextView) findViewById(R.id.tv_srcip);
         tv_dstip = (TextView) findViewById(R.id.tv_dstip);
         tv_srcport = (TextView) findViewById(R.id.tv_srcport);
@@ -67,4 +54,5 @@ public class EventInfoActivity extends AppCompatActivity {
         iv_priorityicon.setImageResource((int) event.get("priority_icon"));
 
     }
+
 }

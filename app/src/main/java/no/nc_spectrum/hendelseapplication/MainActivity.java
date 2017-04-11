@@ -12,11 +12,9 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -49,18 +47,14 @@ public class MainActivity extends AppCompatActivity {
         phoneNumber = phoneEditText.getText().toString();
         password = pwdEditText.getText().toString();
 
+        BackGround b = new BackGround();
 
-        /*TODO: Program login mechanism that fetches the credentials from the textfields*/
-
-
-                    BackGround b = new BackGround();
-
-                    if(!phoneNumber.isEmpty() && !password.isEmpty()) {
-                        b.execute(phoneNumber, password);
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), "Skriv inn brukernavn og passord!", Toast.LENGTH_LONG).show();
-                    }
+        if(!phoneNumber.isEmpty() && !password.isEmpty()) {
+            b.execute(phoneNumber, password);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Skriv inn brukernavn og passord!", Toast.LENGTH_LONG).show();
+        }
 
     }
 
@@ -80,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             InputStream is = null;
 
             try {
-                //URL url = new URL("http://10.0.2.2/login.php");
+
                 URL url = new URL("http://mobapp.ncs.no/login.php");
                 String urlParams = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
@@ -99,17 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
                 is.close();
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-                return "Exception: "+e.getMessage();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "Exception: "+e.getMessage();
-            } finally {
-
                 httpURLConnection.disconnect();
-                return data;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Exception: "+e.getMessage();
             }
+
+            return data;
         }
 
         @Override
@@ -128,9 +119,6 @@ public class MainActivity extends AppCompatActivity {
                     NAME = user_data.getString("userName");
                     PASSWORD = user_data.getString("userPass");
                     USERID = user_data.getString("userID");
-
-                    /*Toast.makeText(context, "NAME: " + NAME + "\nPASSWORD: " + PASSWORD +
-                            "\nUSERID: " + USERID , Toast.LENGTH_LONG).show();*/
 
                     Intent i = new Intent(context, EventTabsActivity.class);
 

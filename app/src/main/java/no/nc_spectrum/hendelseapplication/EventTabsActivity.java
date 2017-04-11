@@ -57,7 +57,6 @@ public class EventTabsActivity extends AppCompatActivity {
 
     private static String strUrl = "http://mobapp.ncs.no/event.php";
 
-    //String name, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,37 +80,6 @@ public class EventTabsActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        /*
-        DownloadTaskAll downloadTask = new DownloadTaskAll();
-        downloadTask.execute(strUrl);
-        mListViewAll = (ListView) findViewById(R.id.lv_events_all);
-
-        mListViewAll.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                try {
-                    HashMap<String, Object> event = findHashMapAt(position, allEvents);
-                    //String infotext = event.get("info_text").toString();
-
-                    //Toast.makeText(context, "Info: " + info , Toast.LENGTH_LONG).show();
-
-
-                    //Starts new activity
-                    Intent i = new Intent(context, EventInfoActivity.class);
-                    i.putExtra("event", event);
-
-                    startActivity(i);
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        */
-
 
     }
 
@@ -319,29 +287,10 @@ public class EventTabsActivity extends AppCompatActivity {
             return null;
         }
 
-        /*private List<HashMap<String, Object>> filterList (List<HashMap<String, Object>> list , int priority )
-        {
-            try {
-                for (Iterator<HashMap<String, Object>> iter = list.iterator(); iter.hasNext(); ) {
-                    HashMap<String, Object> hashMap = iter.next();
-
-                    if((Integer) hashMap.get("priority") != priority )
-                    {
-                        iter.remove();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return list;
-        }*/
-
 
         private String downloadUrl(String strUrl, String priority) throws IOException {
 
             String data = "";
-            int tmp;
             HttpURLConnection httpURLConnection = null;
             InputStream is = null;
             OutputStream os = null;
@@ -353,7 +302,6 @@ public class EventTabsActivity extends AppCompatActivity {
                 String urlParams = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(userID, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("prioLvl", "UTF-8") + "=" + URLEncoder.encode(priority, "UTF-8");
 
-                if (httpURLConnection != null) httpURLConnection.disconnect();
                 httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setDoOutput(true);
@@ -361,8 +309,6 @@ public class EventTabsActivity extends AppCompatActivity {
                 os.write(urlParams.getBytes());
                 os.flush();
                 os.close();
-
-                if (is != null) is.close();
 
                 is = httpURLConnection.getInputStream();
 
@@ -378,20 +324,14 @@ public class EventTabsActivity extends AppCompatActivity {
 
                 is.close();
 
+                httpURLConnection.disconnect();
 
 
             } catch (Exception e) {
                 Log.d("Exception Dloading url", e.toString());
-                return "Exception: "+ e.toString();
-            } finally {
-
-
-                httpURLConnection.disconnect();
-
-
-                return data;
+                return "Exception: "+ e.toString(); //TODO: Modify this?
             }
-
+            return data;
 
         }
 
@@ -716,13 +656,13 @@ public class EventTabsActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "ALLE";
+                    return getString(R.string.all_tab);
                 case 1:
-                    return "HØY";
+                    return getString(R.string.high_tab);
                 case 2:
-                    return "MIDDELS";
+                    return getString(R.string.medium_tab);
                 case 3:
-                    return "LAV";
+                    return getString(R.string.low_tab);
             }
             return null;
         }

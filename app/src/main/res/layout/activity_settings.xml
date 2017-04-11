@@ -24,7 +24,7 @@
         android:id="@+id/notifications_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Push varsler: "
+        android:text="@string/push_notifications_header"
         android:paddingTop="24dp"
         android:paddingBottom="24dp"
         android:paddingLeft="24dp"
@@ -44,7 +44,7 @@
             android:id="@+id/highrisk_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Høy Risiko (Default)"
+            android:text="@string/push_high"
             android:textSize="18sp"
             />
 
@@ -73,7 +73,7 @@
             android:id="@+id/mediumrisk_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Middels Risiko"
+            android:text="@string/push_medium"
             android:textSize="18sp"
             />
 
@@ -99,7 +99,7 @@
             android:id="@+id/lowrisk_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lav Risiko"
+            android:text="@string/push_low"
             android:textSize="18sp"
             />
 
@@ -119,8 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lowrisk_block"
-        android:text="Besøk vår Nettside"
-        android:layout_margin="16dp"
+        android:text="@string/btn_website"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="16dp"
         android:onClick="onClickWebBrowser"/>
 
     <Button
@@ -129,9 +130,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/web_button"
-        android:text="Ring oss"
-        android:layout_marginTop="8dp"
-        android:layout_margin="16dp"
+        android:text="@string/btn_callus"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="16dp"
         android:onClick="onClickMakeCalls"/>
 
 </RelativeLayout>

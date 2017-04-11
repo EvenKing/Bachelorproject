@@ -13,7 +13,8 @@
         android:theme="@style/CustomActionBarTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/CustomActionBarTheme.NoActionBar">
+            android:theme="@style/CustomActionBarTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +23,9 @@
         </activity>
         <activity
             android:name=".EventTabsActivity"
-            android:label="Hendelser"
-            android:theme="@style/CustomActionBarTheme.NoActionBar">
+            android:label="@string/eventtabs_label"
+            android:theme="@style/CustomActionBarTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="no.nc_spectrum.EventTabsActivity" />
 
@@ -32,8 +34,9 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:label="Innstillinger"
-            android:theme="@style/CustomActionBarTheme.NoActionBar">
+            android:label="@string/settings_label"
+            android:theme="@style/CustomActionBarTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="no.nc_spectrum.hendelseapplication.EventTabsActivity" />
@@ -44,8 +47,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListTestActivity" />
-        <activity android:name=".EventInfoActivity"></activity>
+        <activity android:name=".EventInfoActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/eventinfo_label"/>
     </application>
 
 </manifest>

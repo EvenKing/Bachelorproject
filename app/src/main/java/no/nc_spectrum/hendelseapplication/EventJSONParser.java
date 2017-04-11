@@ -18,7 +18,7 @@ public class EventJSONParser {
 
         JSONArray jEvents = null;
         try {
-            jEvents = jObject.getJSONArray("alle_hendelser"); //TODO: change this!
+            jEvents = jObject.getJSONArray("alle_hendelser");
         } catch (JSONException e) {
             e.printStackTrace();
 
@@ -66,25 +66,25 @@ public class EventJSONParser {
             signature = jEvent.getString("signature");
             timestamp = jEvent.getString("timestamp");
             priority = jEvent.getString("priority");
-            src_ip = jEvent.getString("src_ip"); //TODO: Add later (might be null)
+            src_ip = jEvent.getString("src_ip");
             dst_ip = jEvent.getString("dst_ip");
             src_port = jEvent.getString("src_port");
             dst_port = jEvent.getString("dst_port");
-            info_text = jEvent.toString(); //TODO: Does this work?
+            info_text = jEvent.toString();
 
 
             event.put("sid", sid);
             event.put("cid", cid);
             event.put("signature", signature);
             event.put("timestamp", timestamp);
-            event.put("src_ip", src_ip); //TODO: Add later (might be null)
+            event.put("src_ip", src_ip);
             event.put("dst_ip", dst_ip);
             event.put("src_port", src_port);
             event.put("dst_port", dst_port);
             event.put("info_text", info_text);
 
             event.put("priority", priority);
-            switch (priority){ //TODO: Change this?
+            switch (priority){ //TODO: Change this if priorities used change
                 case "5" :
                     event.put("priority_icon", R.drawable.ic_happy_smiley);
                     break;
@@ -95,7 +95,7 @@ public class EventJSONParser {
                     event.put("priority_icon", R.drawable.ic_sad_smiley);
                     break;
                 default:
-                    event.put("priority_icon", R.drawable.ic_medium_smiley);
+                    event.put("priority_icon", R.drawable.ic_default_smiley);
                     break;
             }
 
