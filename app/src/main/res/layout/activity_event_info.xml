@@ -197,7 +197,7 @@
             android:layout_below="@id/tv_cid"
             android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="56dp"
+            android:layout_marginRight="12dp"
             />
 
         <TextView
@@ -236,7 +236,7 @@
             android:textSize="14sp"
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_srcip"
-            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_toRightOf="@id/tv_dstip_label"
             android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             />
@@ -251,7 +251,7 @@
             android:layout_below="@id/tv_dstip"
             android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="38dp"
+            android:layout_marginRight="12dp"
             />
 
         <TextView
@@ -263,7 +263,7 @@
             android:textSize="14sp"
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_dstip"
-            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_toRightOf="@id/tv_srcport_label"
             android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             />
@@ -290,7 +290,7 @@
             android:textSize="14sp"
             android:layout_alignParentRight="true"
             android:layout_below="@id/tv_srcport"
-            android:layout_toRightOf="@id/tv_srcip_label"
+            android:layout_toRightOf="@id/tv_dstport_label"
             android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             />
