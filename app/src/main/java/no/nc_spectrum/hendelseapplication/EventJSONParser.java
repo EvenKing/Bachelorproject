@@ -57,6 +57,7 @@ public class EventJSONParser {
         String dst_ip = "";
         String src_port = "";
         String dst_port = "";
+        String hostname = "";
         String info_text = "";
 
 
@@ -70,6 +71,7 @@ public class EventJSONParser {
             dst_ip = jEvent.getString("dst_ip");
             src_port = jEvent.getString("src_port");
             dst_port = jEvent.getString("dst_port");
+            hostname = jEvent.getString("hostname");
             info_text = jEvent.toString();
 
 
@@ -82,6 +84,7 @@ public class EventJSONParser {
             event.put("src_port", src_port);
             event.put("dst_port", dst_port);
             event.put("info_text", info_text);
+            event.put("hostname", hostname);
 
             event.put("priority", priority);
             switch (priority){ //TODO: Change this if priorities used change

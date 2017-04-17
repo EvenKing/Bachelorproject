@@ -21,15 +21,13 @@ import java.net.URLEncoder;
 public class MainActivity extends AppCompatActivity {
 
 
-    Context context = this;
+    private Context context = this;
+    private EditText phoneEditText;
+    private EditText pwdEditText;
+    private String phoneNumber;
+    private String password;
 
-    EditText phoneEditText;
-    EditText pwdEditText;
-
-    String phoneNumber;
-    String password;
-
-    String NAME=null, PASSWORD=null, USERID=null;
+    private String NAME=null, PASSWORD=null, USERID=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
             int tmp;
             HttpURLConnection httpURLConnection = null;
             InputStream is = null;
+
+
 
             try {
 

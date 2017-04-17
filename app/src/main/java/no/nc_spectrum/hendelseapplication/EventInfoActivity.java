@@ -12,7 +12,7 @@ public class EventInfoActivity extends AppCompatActivity {
 
     private HashMap<String, Object> event;
 
-    private TextView tv_signature, tv_sid, tv_cid, tv_timestamp, tv_risk, tv_srcip, tv_dstip, tv_srcport, tv_dstport, tv_infotext;
+    private TextView tv_signature, tv_sid, tv_cid, tv_timestamp, tv_risk, tv_srcip, tv_dstip, tv_srcport, tv_dstport, tv_infotext, tv_hostname;
 
     private ImageView iv_priorityicon;
 
@@ -32,6 +32,7 @@ public class EventInfoActivity extends AppCompatActivity {
         tv_srcport = (TextView) findViewById(R.id.tv_srcport);
         tv_dstport = (TextView) findViewById(R.id.tv_dstport);
         tv_infotext = (TextView) findViewById(R.id.tv_infotext);
+        tv_hostname = (TextView) findViewById(R.id.tv_hostname);
 
         iv_priorityicon = (ImageView) findViewById(R.id.iv_info_smiley);
 
@@ -50,6 +51,7 @@ public class EventInfoActivity extends AppCompatActivity {
         tv_srcport.setText(event.get("src_port").toString());
         tv_dstport.setText(event.get("dst_port").toString());
         tv_infotext.setText(event.get("info_text").toString());
+        tv_hostname.setText(event.get("hostname").toString());
 
         iv_priorityicon.setImageResource((int) event.get("priority_icon"));
 

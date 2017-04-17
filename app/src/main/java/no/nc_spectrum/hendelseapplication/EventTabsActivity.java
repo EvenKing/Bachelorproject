@@ -105,6 +105,9 @@ public class EventTabsActivity extends AppCompatActivity {
             return true;
         }
         else if(id == R.id.action_logout){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 
@@ -382,8 +385,8 @@ public class EventTabsActivity extends AppCompatActivity {
                 }
 
 
-                String[] from = {"signature", "timestamp", "priority_icon" };
-                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley };
+                String[] from = {"signature", "timestamp", "priority_icon", "hostname" };
+                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley, R.id.tv_hostname };
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(), allEvents, R.layout.lv_events_layout, from, to);
 
                 return adapter;
@@ -456,8 +459,8 @@ public class EventTabsActivity extends AppCompatActivity {
                 }
 
 
-                String[] from = {"signature", "timestamp", "priority_icon" };
-                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley };
+                String[] from = {"signature", "timestamp", "priority_icon", "hostname" };
+                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley, R.id.tv_hostname };
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(), highEvents, R.layout.lv_events_layout, from, to);
 
                 return adapter;
@@ -530,8 +533,8 @@ public class EventTabsActivity extends AppCompatActivity {
                 }
 
 
-                String[] from = {"signature", "timestamp", "priority_icon" };
-                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley };
+                String[] from = {"signature", "timestamp", "priority_icon", "hostname" };
+                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley, R.id.tv_hostname };
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(), mediumEvents, R.layout.lv_events_layout, from, to);
 
                 return adapter;
@@ -602,8 +605,8 @@ public class EventTabsActivity extends AppCompatActivity {
                 }
 
 
-                String[] from = {"signature", "timestamp", "priority_icon" };
-                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley };
+                String[] from = {"signature", "timestamp", "priority_icon", "hostname" };
+                int[] to = {R.id.tv_event_name, R.id.tv_event_date, R.id.iv_smiley, R.id.tv_hostname };
                 SimpleAdapter adapter = new SimpleAdapter(getActivity(), lowEvents, R.layout.lv_events_layout, from, to);
 
                 return adapter;

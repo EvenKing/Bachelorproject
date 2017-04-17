@@ -20,16 +20,17 @@
     <string name="low_tab">LAV</string>
 
     <!-- EventInfo Activity -->
-    <string name="signature_hint">Signature: </string>
-    <string name="priority_hint">Priority: </string>
-    <string name="timestamp_hint">Timestamp: </string>
+    <string name="signature_hint">Signatur: </string>
+    <string name="priority_hint">Prioritet: </string>
+    <string name="timestamp_hint">Tidspunkt: </string>
+    <string name="hostname_hint">Sensor Navn: </string>
     <string name="sid_hint">SID: </string>
     <string name="cid_hint">CID: </string>
-    <string name="srcip_hint">Source IP: </string>
-    <string name="dstip_hint">Destination IP: </string>
-    <string name="srcport_hint">Source Port: </string>
-    <string name="dstport_hint">Destination Port: </string>
-    <string name="moreinfo_hint">More Info: </string>
+    <string name="srcip_hint">Kilde IP: </string>
+    <string name="dstip_hint">Destinasjon IP: </string>
+    <string name="srcport_hint">Kilde Port: </string>
+    <string name="dstport_hint">Destinasjon Port: </string>
+    <string name="moreinfo_hint">Mer Info: </string>
     
     <!-- Settings Activity -->
     <string name="push_notifications_header">Push Varsler: </string>

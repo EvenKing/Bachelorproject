@@ -105,6 +105,32 @@
             android:layout_marginRight="16dp"
             />
 
+        <TextView
+            android:id="@+id/tv_hostname_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_text"
+            android:text="@string/hostname_hint"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_timestamp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_hostname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="HOSTNAME HERE"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_timestamp"
+            android:layout_toRightOf="@id/tv_hostname_label"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            />
+
 
         <TextView
             android:id="@+id/tv_sid_label"
@@ -113,8 +139,8 @@
             android:textColor="@color/secondary_text"
             android:text="@string/sid_hint"
             android:textSize="14sp"
-            android:layout_below="@id/tv_timestamp"
-            android:layout_marginTop="32dp"
+            android:layout_below="@id/tv_hostname"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             />
@@ -126,9 +152,9 @@
             android:textColor="@color/primary_text"
             android:text="SID HERE"
             android:textSize="14sp"
-            android:layout_below="@id/tv_timestamp"
+            android:layout_below="@id/tv_hostname"
             android:layout_toRightOf="@id/tv_sid_label"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             />
 
@@ -139,9 +165,9 @@
             android:textColor="@color/secondary_text"
             android:text="@string/cid_hint"
             android:textSize="14sp"
-            android:layout_below="@id/tv_timestamp"
+            android:layout_below="@id/tv_hostname"
             android:layout_toRightOf="@+id/tv_sid"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="12dp"
             />
@@ -154,9 +180,9 @@
             android:text="CID HERE"
             android:textSize="14sp"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/tv_timestamp"
+            android:layout_below="@id/tv_hostname"
             android:layout_toRightOf="@id/tv_cid_label"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="16dp"
             />
 

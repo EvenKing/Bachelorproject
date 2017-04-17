@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ncs_applogo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/CustomActionBarTheme">
@@ -28,7 +28,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="no.nc_spectrum.EventTabsActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

@@ -43,4 +43,16 @@
             />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_hostname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="12dp"
+        android:textColor="@color/tertiary_text"
+        android:textSize="12sp"
+        />
+
 </RelativeLayout>
