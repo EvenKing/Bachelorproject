@@ -47,6 +47,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".EventInfoActivity"
+            android:theme="@style/CustomActionBarTheme.NoActionBar"
             android:screenOrientation="portrait"
             android:label="@string/eventinfo_label"/>
     </application>

@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Hendelse Application</string>
     <string name="action_settings">Innstillinger</string>
+    <string name="action_refresh">Oppdater</string>
     <string name="action_logout">Logg Ut</string>
+
+    <string name="description_priorityicon">Icon that indicates risk level.</string>
 
     <!-- Activity Labels -->
     <string name="eventtabs_label">Hendelser</string>

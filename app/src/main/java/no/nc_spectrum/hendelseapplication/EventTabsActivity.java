@@ -83,6 +83,11 @@ public class EventTabsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,6 +112,14 @@ public class EventTabsActivity extends AppCompatActivity {
         else if(id == R.id.action_logout){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
+            return true;
+        }
+        else if(id == R.id.action_refresh){
+            Intent i = new Intent(this, EventTabsActivity.class);
+            i.putExtra("userID", userID);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); //TODO: Is this correct?
+            startActivity(i);
             finish();
             return true;
         }
