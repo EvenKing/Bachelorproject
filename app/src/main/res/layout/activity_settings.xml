@@ -24,7 +24,7 @@
         android:id="@+id/notifications_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/push_notifications_header"
+        android:text="@string/notifications_header"
         android:paddingTop="24dp"
         android:paddingBottom="24dp"
         android:paddingLeft="24dp"
@@ -44,7 +44,7 @@
             android:id="@+id/highrisk_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/push_high"
+            android:text="@string/notif_high"
             android:textSize="18sp"
             />
 
@@ -73,7 +73,7 @@
             android:id="@+id/mediumrisk_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/push_medium"
+            android:text="@string/notif_medium"
             android:textSize="18sp"
             />
 
@@ -99,7 +99,7 @@
             android:id="@+id/lowrisk_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/push_low"
+            android:text="@string/notif_low"
             android:textSize="18sp"
             />
 

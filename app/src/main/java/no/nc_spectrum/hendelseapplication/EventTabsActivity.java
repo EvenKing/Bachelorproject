@@ -428,7 +428,7 @@ public class EventTabsActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... url) {
                 try {
-                    data = downloadUrl(url[0], "7" );
+                    data = downloadUrl(url[0], "1" ); //TODO: Change priority level here
                 } catch (Exception e) {
                     Log.d("Background Task", e.toString());
                 }
@@ -465,8 +465,6 @@ public class EventTabsActivity extends AppCompatActivity {
                 try {
                     highEvents = eventJSONParser.parse(jObject);
 
-                    //highEvents = filterList(highEvents, 7); //TODO: Change this method
-
                 } catch (Exception e) {
                     Log.d("Exception", e.toString());
                 }
@@ -502,7 +500,7 @@ public class EventTabsActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... url) {
                 try {
-                    data = downloadUrl(url[0] , "6"); //TODO: Change priority level here
+                    data = downloadUrl(url[0] , "2"); //TODO: Change priority level here
                 } catch (Exception e) {
                     Log.d("Background Task", e.toString());
                 }
@@ -539,8 +537,6 @@ public class EventTabsActivity extends AppCompatActivity {
                 try {
                     mediumEvents = eventJSONParser.parse(jObject);
 
-                    //mediumEvents = filterList(mediumEvents, 6); //TODO: Change this method
-
                 } catch (Exception e) {
                     Log.d("Exception", e.toString());
                 }
@@ -576,7 +572,7 @@ public class EventTabsActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... url) {
                 try {
-                    data = downloadUrl(url[0] , "5"); //TODO: CHANGE HERE!
+                    data = downloadUrl(url[0] , "3"); //TODO: CHANGE HERE!
                 } catch (Exception e) {
                     Log.d("Background Task", e.toString());
                 }

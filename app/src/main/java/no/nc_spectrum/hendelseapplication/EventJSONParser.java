@@ -88,13 +88,13 @@ public class EventJSONParser {
 
             event.put("priority", priority);
             switch (priority){ //TODO: Change this if priorities used change
-                case "5" :
+                case "3" :
                     event.put("priority_icon", R.drawable.ic_happy_smiley);
                     break;
-                case "6" :
+                case "2" :
                     event.put("priority_icon", R.drawable.ic_medium_smiley);
                     break;
-                case "7" :
+                case "1" :
                     event.put("priority_icon", R.drawable.ic_sad_smiley);
                     break;
                 default:

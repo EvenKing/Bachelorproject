@@ -36,10 +36,10 @@
     <string name="moreinfo_hint">Mer Info: </string>
     
     <!-- Settings Activity -->
-    <string name="push_notifications_header">Push Varsler: </string>
-    <string name="push_high">Høy Risiko (Default)</string>
-    <string name="push_medium">Middels Risiko</string>
-    <string name="push_low">Lav Risiko</string>
+    <string name="notifications_header">Varsler: </string>
+    <string name="notif_high">Høy Risiko (Default)</string>
+    <string name="notif_medium">Middels Risiko</string>
+    <string name="notif_low">Lav Risiko</string>
     <string name="btn_website">Besøk Vår Nettside</string>
     <string name="btn_callus">Ring Oss</string>
 
