@@ -122,9 +122,9 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent i = new Intent(context, EventTabsActivity.class);
 
-                    i.putExtra("userName", NAME);
-                    i.putExtra("userPass", PASSWORD);
-                    i.putExtra("err", err);
+                    i.putExtra("userName", NAME); //brukes ikke
+                    i.putExtra("userPass", PASSWORD); //brukes ikke
+                    i.putExtra("err", err); //brukes ikke
                     i.putExtra("userID", USERID);
 
                     startActivity(i);
