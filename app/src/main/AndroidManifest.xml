@@ -50,6 +50,15 @@
             android:theme="@style/CustomActionBarTheme.NoActionBar"
             android:screenOrientation="portrait"
             android:label="@string/eventinfo_label"/>
+        <service android:name=".UpdateCheck"/>
+        <receiver android:name=".RestartUpdateChecker"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartCheckWhenStopped">
+            <intent-filter>
+                <action android:name="nc_spectrum.hendelsesapplication.no.ActivityRecognition.RestartCheck"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

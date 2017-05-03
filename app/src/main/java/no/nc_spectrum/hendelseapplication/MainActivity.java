@@ -1,10 +1,12 @@
 package no.nc_spectrum.hendelseapplication;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -26,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText pwdEditText;
     private String phoneNumber;
     private String password;
+    private Intent ii;
 
-    private String NAME=null, PASSWORD=null, USERID=null;
+    private String NAME=null, PASSWORD=null, USERID=null, CID=null;
+
+    static boolean isRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,18 @@ public class MainActivity extends AppCompatActivity {
         phoneEditText = (EditText)findViewById(R.id.phoneEditText);
         pwdEditText = (EditText) findViewById(R.id.passwordEditText);
 
+        isRunning = true;
+    }
+
+    protected void onResume(){
+        super.onResume();
+        isRunning = true;
+        UpdateCheck.nullify(getApplicationContext());
+    }
+
+    protected void onStop(){
+        super.onStop();
+        isRunning = false;
     }
 
 
@@ -47,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
 
         BackGround b = new BackGround();
 
-        if(!phoneNumber.isEmpty() && !password.isEmpty()) {
+        if(!isInteger(phoneNumber)){
+            Toast.makeText(getApplicationContext(), "Brukernavn eller passord er feil!", Toast.LENGTH_LONG).show();
+        }
+        else if(!phoneNumber.isEmpty() && !password.isEmpty()) {
+            if(isMyServiceRunning(UpdateCheck.class)){
+                stopService(new Intent(MainActivity.this, UpdateCheck.class));
+            }
             b.execute(phoneNumber, password);
         }
         else {
@@ -56,7 +80,39 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private static boolean isInteger(String str){
+        if (str == null) {
+            return false;
+        }
+        int length = str.length();
+        if (length == 0) {
+            return false;
+        }
+        int i = 0;
+        if (str.charAt(0) == '-') {
+            if (length == 1) {
+                return false;
+            }
+            i = 1;
+        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c < '0' || c > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
 
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
@@ -87,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
                 os.close();
 
                 is = httpURLConnection.getInputStream();
-                while((tmp=is.read())!=-1){
-                    data+= (char)tmp;
+                while ((tmp = is.read()) != -1) {
+                    data += (char) tmp;
                 }
 
                 is.close();
@@ -119,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                     NAME = user_data.getString("userName");
                     PASSWORD = user_data.getString("userPass");
                     USERID = user_data.getString("userID");
+                    CID = user_data.getString("cid");
 
                     Intent i = new Intent(context, EventTabsActivity.class);
 
@@ -128,6 +185,16 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("userID", USERID);
 
                     startActivity(i);
+
+                    ii = new Intent(getBaseContext(), UpdateCheck.class);
+                    ii.putExtra("userid", USERID);
+                    ii.putExtra("cid", CID);
+                    ii.putExtra("loggedin", true);
+
+                    Log.i(MainActivity.class.getSimpleName()," Har laget Intent!");
+
+                    startService(ii);
+
                     finish(); //dreper main-activity
 
                 } else {
@@ -141,9 +208,16 @@ public class MainActivity extends AppCompatActivity {
             }catch (NullPointerException e){
                 e.printStackTrace();
                 err = "Nullpointerexception: " + e.getMessage();
+            }catch (Exception e){
+                e.printStackTrace();
+                Log.i(e.getMessage(), "");
             }
 
         }
+    }
+    protected void onDestroy(){
+        super.onDestroy();
+        isRunning = false;
     }
 
 

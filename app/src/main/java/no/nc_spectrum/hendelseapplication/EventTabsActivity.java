@@ -57,6 +57,8 @@ public class EventTabsActivity extends AppCompatActivity {
 
     private static String strUrl = "http://mobapp.ncs.no/event.php";
 
+    static boolean isRunning;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class EventTabsActivity extends AppCompatActivity {
 
         userID = intent.getStringExtra("userID");
 
+        isRunning = true;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -81,6 +84,24 @@ public class EventTabsActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+    }
+
+    protected void onResume(){
+        super.onResume();
+        UpdateCheck.nullify(getApplicationContext());
+        isRunning = true;
+    }
+
+    protected void onStop(){
+        super.onStop();
+        isRunning = false;
+    }
+
+    protected void onDestroy(){
+        isRunning = false;
+        Intent i = new Intent(getBaseContext(), UpdateCheck.class);
+        stopService(i);
+        super.onDestroy();
     }
 
     @Override
@@ -111,6 +132,7 @@ public class EventTabsActivity extends AppCompatActivity {
         }
         else if(id == R.id.action_logout){
             Intent intent = new Intent(this, MainActivity.class);
+            UpdateCheck.loggedIn = false;
             startActivity(intent);
             finish();
             return true;

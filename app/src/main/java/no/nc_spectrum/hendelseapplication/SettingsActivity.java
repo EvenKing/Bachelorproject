@@ -11,15 +11,35 @@ import android.view.View;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    static boolean isRunning;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        isRunning = true;
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //TODO: Add this?
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    protected void onResume(){
+        super.onResume();
+        UpdateCheck.nullify(getApplicationContext());
+        isRunning = true;
+    }
+
+    protected void onStop(){
+        super.onStop();
+        isRunning = false;
+    }
+
+    protected void onDestroy(){
+        super.onDestroy();
+        isRunning = false;
     }
 
     @Override
@@ -46,6 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
         if(id == R.id.action_logout){
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            UpdateCheck.loggedIn = false;
             startActivity(intent);
             finish();
             return true;

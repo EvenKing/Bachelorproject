@@ -19,6 +19,8 @@ public class EventInfoActivity extends AppCompatActivity {
 
     private ImageView iv_priorityicon;
 
+    static boolean isRunning;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,24 @@ public class EventInfoActivity extends AppCompatActivity {
 
         iv_priorityicon.setImageResource((int) event.get("priority_icon"));
 
+        isRunning = true;
+
+    }
+
+    protected void onResume(){
+        super.onResume();
+        UpdateCheck.nullify(getApplicationContext());
+        isRunning = true;
+    }
+
+    protected void onStop(){
+        super.onStop();
+        isRunning = false;
+    }
+
+    protected void onDestroy(){
+        super.onDestroy();
+        isRunning = false;
     }
 
     @Override
@@ -89,6 +109,7 @@ public class EventInfoActivity extends AppCompatActivity {
         if(id == R.id.action_logout){
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            UpdateCheck.loggedIn = false;
             startActivity(intent);
             finish();
             return true;

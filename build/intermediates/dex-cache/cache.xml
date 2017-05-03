@@ -3,21 +3,129 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="57ecddd0a172ae9c9359c29ff4984f0407e3c1e5">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0bfa43d8a914c32c48e1755c87a34274e8f400c1\classes.dex" />
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_15277201f39945ed9e94c635eaa3782aeb5abc85\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Bruker\.android\build-cache\5a4bdca3b66d350ac167c91a9b327fc49da282b6\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_f1d9471b0a730a0d696303325743dfd310818e4b\classes.dex" />
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4a819b1201084abf9cfb0dc746c0285eca0d601c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\9c8456daf8e3b964d47335ac9bfe437e6413332f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b832e2ab359da108145b3d94fd12ce9d12e57981\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\24b3267dbd5105a4723ea63e0b871a98375c4a69\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_daab3779f4026c279164989f2f2cd160536ede5f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\31c719af0efdafe245db07a185c46c67fec490b0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fda6234df695c10a18115e80fd5b64d507c33c68\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\f97c0a2037375d611fbb2ef090d09a43b9f2bad4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cdf2b47b7f3f75d0f91bf00ea7790f6f6ced52ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\6944a2afc69eea05290afdf0c00679044315d864\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a9ee9e9c582d53cd22da85fed5f5f7c67451d880\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\1038f8e0d2e977bd34b04aefdcc80b315f28cf19\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bb6498a5b8d6a6aa6be79ec28b6abd19f674f0a2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\96698b888f4d6470bee6339e1876e3014df55a3b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_13c5b0f88c077bf8d32b261b5c693aa29823df98\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\6c266079ceda5b6e078c9c94105b35ab10895355\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_023f12bb86af27fff0eb3256fa651cb7e8c38191\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\d1a78f8a5f6877e3052f7079b48cb000fdf62fd2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5b6495c8de1dbbca68f3541dd3d1cded853b1c6f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\6465866541d07004adbdabaf60e33817dcf778ef\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0835eb1b1b8e72b94ca5b3a19405c6c98e1f6082\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\.android\build-cache\2a188f17129687d4cdbf790c97af0baa68dde538\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6e4f5eb7effb842c21bb2fa424dc7065b675f6eb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d57960779bc8f26e69af0da9ed1845a62bcb29c0">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_ac7dc3e6abc6d2626c8846ca932427cc73d3e2ad\classes.dex" />
     </item>
 
 </items>
