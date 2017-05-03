@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(!phoneNumber.isEmpty() && !password.isEmpty()) {
             if(isMyServiceRunning(UpdateCheck.class)){
+                UpdateCheck.loggedIn = false;
                 stopService(new Intent(MainActivity.this, UpdateCheck.class));
             }
             b.execute(phoneNumber, password);

@@ -36,9 +36,9 @@ import java.util.TimerTask;
 public class UpdateCheck extends Service{
     int counter = 0;
     static int eventlength = 0, notificationCounter = 0;
-    static final int UPDATE_INTERVAL = 60000; //TODO: Change time interval between checks here
+    static final int UPDATE_INTERVAL = 20000; //TODO: Change time interval between checks here
     private Timer timer = new Timer();
-    private String priorityLvl = "1"; //TODO: Change priority level for notifications here!
+    private String priorityLvl = "0"; //TODO: Change priority level for notifications here!
     String uid, cid, sid = "", signa = "", timestamp = "";
     Context nctx;
     static boolean loggedIn;
@@ -117,9 +117,9 @@ public class UpdateCheck extends Service{
             notificationCounter = 0;
             return;
         }else */
-        if(eventlength > 0 || notificationCounter > 3){
+        if(eventlength > 0 || notificationCounter > 1){
             cancelNotifications(nctx);
-            mBuilder.setContentTitle(getString(R.string.notification_title_multiple)).setContentText(eventlength + getString(R.string.notification_text));
+            mBuilder.setContentTitle(getString(R.string.notification_title_multiple)).setContentText(eventlength + " " + getString(R.string.notification_text));
         }else{
             ++notificationCounter;
             mBuilder.setContentTitle(getString(R.string.notification_title_single)).setContentText(getString(R.string.sid_hint) + sid + ", " + getString(R.string.cid_hint) + cid + ", " + getString(R.string.timestamp_hint) + timestamp);
@@ -140,6 +140,8 @@ public class UpdateCheck extends Service{
         mBuilder.setContentIntent(resultPendingIntent);
 
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Log.i(UpdateCheck.class.getSimpleName(), eventlength + " updates!");
 
         mNotificationManager.notify(counter++, mBuilder.build());
     }
@@ -206,18 +208,20 @@ public class UpdateCheck extends Service{
                 }
 
                 if(noenoe != null) {
-                    if (noenoe.length() < 6) {
+                    if (noenoe.length() < 3) {
                         for(int i=noenoe.length()-1;i>=0;i--) {
                             JSONObject oppdatert = noenoe.getJSONObject(i);
                             sid = oppdatert.getString("sid");
                             cid = oppdatert.getString("cid");
                             signa = oppdatert.getString("signature");
                             timestamp = oppdatert.getString("timestamp");
-                            eventlength++;
+                            ++eventlength;
+                            Log.i(UpdateCheck.class.getSimpleName(), "Fant 1 update");
                             sendNotification();
                         }
                     } else {
-                        eventlength = noenoe.length() - 1;
+                        Log.i(UpdateCheck.class.getSimpleName(), "Fant " + (noenoe.length()-1) + " updates!");
+                        eventlength += noenoe.length() - 1;
                         JSONObject oppdatert = noenoe.getJSONObject(0);
                         cid = oppdatert.getString("cid");
                         sendNotification();
