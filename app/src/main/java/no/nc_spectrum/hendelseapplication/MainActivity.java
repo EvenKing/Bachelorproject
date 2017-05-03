@@ -17,7 +17,6 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void login(View view) {
+    public void login(View view) { //Listener for when the Login button is pushed
 
         phoneNumber = phoneEditText.getText().toString();
         password = pwdEditText.getText().toString();
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private static boolean isInteger(String str){
+    private static boolean isInteger(String str){ //Checks if String is an integer
         if (str == null) {
             return false;
         }
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
+    private boolean isMyServiceRunning(Class<?> serviceClass) { //Checks if a service is running
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
