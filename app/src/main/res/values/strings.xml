@@ -44,5 +44,8 @@
     <string name="btn_website">Besøk Vår Nettside</string>
     <string name="btn_callus">Ring Oss</string>
 
-
+    <!-- For Notifications -->
+    <string name="notification_title_multiple">Nye Hendelser!</string>
+    <string name="notification_title_single">Ny Hendelse!</string>
+    <string name="notification_text"> nye hendelser med høyt risikonivå</string>
 </resources>

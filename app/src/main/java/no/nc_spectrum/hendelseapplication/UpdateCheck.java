@@ -1,16 +1,5 @@
 package no.nc_spectrum.hendelseapplication;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -29,10 +18,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import no.nc_spectrum.hendelseapplication.MainActivity;
-import no.nc_spectrum.hendelseapplication.EventInfoActivity;
-import no.nc_spectrum.hendelseapplication.EventTabsActivity;
-import no.nc_spectrum.hendelseapplication.SettingsActivity;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Bruker on 02.05.2017.
@@ -41,8 +36,9 @@ import no.nc_spectrum.hendelseapplication.SettingsActivity;
 public class UpdateCheck extends Service{
     int counter = 0;
     static int eventlength = 0, notificationCounter = 0;
-    static final int UPDATE_INTERVAL = 60000;
+    static final int UPDATE_INTERVAL = 60000; //TODO: Change time interval between checks here
     private Timer timer = new Timer();
+    private String priorityLvl = "1"; //TODO: Change priority level for notifications here!
     String uid, cid, sid = "", signa = "", timestamp = "";
     Context nctx;
     static boolean loggedIn;
@@ -123,10 +119,10 @@ public class UpdateCheck extends Service{
         }else */
         if(eventlength > 0 || notificationCounter > 3){
             cancelNotifications(nctx);
-            mBuilder.setContentTitle("Nye Hendelser!").setContentText(eventlength + " nye hendelser!");
+            mBuilder.setContentTitle(getString(R.string.notification_title_multiple)).setContentText(eventlength + getString(R.string.notification_text));
         }else{
             ++notificationCounter;
-            mBuilder.setContentTitle("My Hendelse!").setContentText("Sensor: " + sid + ", CID: " + cid + ", Tid: " + timestamp);
+            mBuilder.setContentTitle(getString(R.string.notification_title_single)).setContentText(getString(R.string.sid_hint) + sid + ", " + getString(R.string.cid_hint) + cid + ", " + getString(R.string.timestamp_hint) + timestamp);
         }
 
         /*TODO
@@ -165,7 +161,7 @@ public class UpdateCheck extends Service{
                 URL url = new URL("http://mobapp.ncs.no/updated.php");
                 String urlParams = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(uID, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("cid", "UTF-8") + "=" + URLEncoder.encode(cID, "UTF-8");
-                urlParams += "&" + URLEncoder.encode("priority", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8");
+                urlParams += "&" + URLEncoder.encode("priority", "UTF-8") + "=" + URLEncoder.encode(priorityLvl, "UTF-8"); //TODO: change priority number for desired notfications
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setDoOutput(true);
