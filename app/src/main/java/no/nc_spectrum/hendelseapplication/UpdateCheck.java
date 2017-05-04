@@ -38,7 +38,7 @@ public class UpdateCheck extends Service{               //service to continuousl
     static int eventlength = 0, notificationCounter = 0;        //holds amount of new events and notifications on screen
     static final int UPDATE_INTERVAL = 20000; //TODO: Change time interval between checks here  here we define time interval for checks
     private Timer timer = new Timer();                          //the timer-object to initialize the task-interval
-    private String priorityLvl = "0"; //TODO: Change priority level for notifications here!     priority of event to be found
+    private String priorityLvl = "1"; //TODO: Change priority level for notifications here!     priority of event to be found
     String uid, cid, sid = "", signa = "", timestamp = "";      //these variables hold information on events and the user
     Context nctx;                       //context, created here in order to use for onDestroy()-function
     static boolean loggedIn;            //variable for whether or not to restart this service when app is destroyed/closed
@@ -192,11 +192,16 @@ public class UpdateCheck extends Service{               //service to continuousl
                 Object objektet = new JSONTokener(root.getString("oppdatert")).nextValue();
 
                 JSONArray noenoe = null;
+                JSONObject uoppdatert;
 
                 if(objektet instanceof JSONArray) {         //if the object is a JSON-array, means it found update(s)
                     noenoe = (JSONArray) objektet;          //creates the JSON array
                 }else if(objektet instanceof JSONObject) {  //if it's a JSON object, means it didn't find any updates
-                    return;
+                    uoppdatert = (JSONObject) objektet;
+                    if(uoppdatert.getString("error") == "TRUE"){    //if error is stored as TRUE
+                        Log.i(UpdateCheck.class.getSimpleName(), "En error oppstod med henting fra database"); //logs message
+                    }
+                    return;         //nothing further to do
                 }else {             //this is shown if something is wrong and it couldn't find any response from the server:
                     Toast.makeText(getApplicationContext(), "Var hverken array eller objekt!", Toast.LENGTH_LONG).show();
                 }
@@ -221,7 +226,7 @@ public class UpdateCheck extends Service{               //service to continuousl
             } catch (JSONException e) {                     //to catch exception if response from doInBackground is not JSON
                 e.printStackTrace();
                 String errorMsg = "JSONException: " + e.getMessage();
-                Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
                 Log.e("Error:", errorMsg);              //used for testing
             }catch (NullPointerException e){            //used to catch nullpointerexception
                 e.printStackTrace();
