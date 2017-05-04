@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String phoneNumber;
     private String password;
     private Intent ii;
+    private final String strUrl = "http://mobapp.ncs.no/login.php";
 
     private String NAME=null, PASSWORD=null, USERID=null, CID=null;
 
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                URL url = new URL("http://mobapp.ncs.no/login.php");
+                URL url = new URL(strUrl);
                 String urlParams = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
 
@@ -186,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
                     startActivity(i);
 
+                    //Starts notification service
                     ii = new Intent(getBaseContext(), UpdateCheck.class);
                     ii.putExtra("userid", USERID);
                     ii.putExtra("cid", CID);

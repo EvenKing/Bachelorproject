@@ -22,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //TODO: Add this?
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
+    public boolean onSupportNavigateUp() { //When the devices back button is pressed
         onBackPressed();
         return true;
     }
@@ -75,12 +75,12 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickWebBrowser (View view) {
+    public void onClickWebBrowser (View view) { //Listens to website button
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.nc-spectrum.no/"));
         startActivity(i);
     }
 
-    public void onClickMakeCalls (View view) {
+    public void onClickMakeCalls (View view) { //listens to call button
         Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+4735203000"));
         startActivity(i);
     }

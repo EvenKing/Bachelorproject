@@ -32,6 +32,7 @@ public class EventInfoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //Fetches TextViews and ImageView
         tv_signature = (TextView) findViewById(R.id.tv_signature);
         tv_sid = (TextView) findViewById(R.id.tv_sid);
         tv_cid = (TextView) findViewById(R.id.tv_cid);
@@ -47,10 +48,10 @@ public class EventInfoActivity extends AppCompatActivity {
         iv_priorityicon = (ImageView) findViewById(R.id.iv_info_smiley);
 
         Intent intent = getIntent();
-
+        //Fetches the event selected in EventTabsActivity
         event = (HashMap<String, Object>) intent.getSerializableExtra("event");
 
-
+        //Fills the views
         tv_signature.setText(event.get("signature").toString());
         tv_sid.setText(event.get("sid").toString());
         tv_cid.setText(event.get("cid").toString());
@@ -105,16 +106,16 @@ public class EventInfoActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if(id == R.id.action_logout){
+
+        if(id == R.id.action_logout){ //When "Log Out" is pressed
             Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); //Clears the stack
             UpdateCheck.loggedIn = false;
             startActivity(intent);
             finish();
             return true;
         }
-        else if(id == R.id.action_settings){
+        else if(id == R.id.action_settings){ //When "Settings" is pressed
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             finish();

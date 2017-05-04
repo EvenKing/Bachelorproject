@@ -14,7 +14,7 @@ import java.util.List;
 
 public class EventJSONParser {
 
-    public List<HashMap<String, Object>> parse(JSONObject jObject) {
+    public List<HashMap<String, Object>> parse(JSONObject jObject) { //Returns list of events from the JSON Array "alle_hendelser"
 
         JSONArray jEvents = null;
         try {
@@ -27,7 +27,7 @@ public class EventJSONParser {
         return getEvents(jEvents);
     }
 
-    private List<HashMap<String, Object>> getEvents(JSONArray jEvents) {
+    private List<HashMap<String, Object>> getEvents(JSONArray jEvents) { //Returns list of hashmaps (events)
         int eventCount = jEvents.length();
         List<HashMap<String, Object>> eventList = new ArrayList<HashMap<String, Object>>();
         HashMap<String, Object> event = null;
@@ -44,7 +44,7 @@ public class EventJSONParser {
         return eventList;
     }
 
-    private HashMap<String, Object> getEvent(JSONObject jEvent) {
+    private HashMap<String, Object> getEvent(JSONObject jEvent) { // 1 HashMap --> 1 Event
 
         HashMap<String, Object> event = new HashMap<String, Object>();
 
