@@ -36,7 +36,7 @@ import java.util.TimerTask;
 public class UpdateCheck extends Service{               //service to continuously run in the background
     int counter = 0;                                        //this variable is actually quite redundant, used for testing
     static int eventlength = 0, notificationCounter = 0;        //holds amount of new events and notifications on screen
-    static final int UPDATE_INTERVAL = 20000; //TODO: Change time interval between checks here  here we define time interval for checks
+    static final int UPDATE_INTERVAL = 60000; //TODO: Change time interval between checks here  here we define time interval for checks
     private Timer timer = new Timer();                          //the timer-object to initialize the task-interval
     private String priorityLvl = "1"; //TODO: Change priority level for notifications here!     priority of event to be found
     String uid, cid, sid = "", signa = "", timestamp = "";      //these variables hold information on events and the user

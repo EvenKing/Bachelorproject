@@ -55,7 +55,7 @@ public class EventTabsActivity extends AppCompatActivity {
     private static String userID = "";
     private Context context = this;
 
-    private static String strUrl = "http://mobapp.ncs.no/event.php";
+    private static String strUrl = "http://mobapp.ncs.no/event.php"; //File server address
 
     static boolean isRunning;
 
@@ -105,7 +105,7 @@ public class EventTabsActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() { //Handles "Back" button of the phone
         moveTaskToBack(true);
     }
 
@@ -125,19 +125,19 @@ public class EventTabsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings) { // When "Settings" is pressed
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
         }
-        else if(id == R.id.action_logout){
+        else if(id == R.id.action_logout){ //When "Log Out" is pressed, it kills the current activity and the notification service and launches the Login Activity
             Intent intent = new Intent(this, MainActivity.class);
             UpdateCheck.loggedIn = false;
             startActivity(intent);
             finish();
             return true;
         }
-        else if(id == R.id.action_refresh){
+        else if(id == R.id.action_refresh){ //Restarts current activity
             Intent i = new Intent(this, EventTabsActivity.class);
             i.putExtra("userID", userID);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -150,7 +150,7 @@ public class EventTabsActivity extends AppCompatActivity {
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * Placeholder fragment under the selected tab containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
         /**
@@ -184,7 +184,7 @@ public class EventTabsActivity extends AppCompatActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, //Inflatess Fragment layout according to the selected tab
                                  Bundle savedInstanceState) {
             if(getArguments().getInt(ARG_SECTION_NUMBER) == 1){
                 View rootView = inflater.inflate(R.layout.fragment_sub_page01, container, false);
@@ -310,7 +310,7 @@ public class EventTabsActivity extends AppCompatActivity {
         }
 
 
-        private HashMap<String, Object> findHashMapAt(int position, List<HashMap<String, Object>> list)
+        private HashMap<String, Object> findHashMapAt(int position, List<HashMap<String, Object>> list) //Finds Hashmap in a List using its position
         {
             for ( HashMap<String, Object> hm : list )
             {
@@ -325,7 +325,7 @@ public class EventTabsActivity extends AppCompatActivity {
             return null;
         }
 
-
+        //Fetches JSON data of events with the inputted priority number (0 fetches all between 1 and 3) from database via the fileserver
         private String downloadUrl(String strUrl, String priority) throws IOException {
 
             String data = "";
@@ -373,6 +373,9 @@ public class EventTabsActivity extends AppCompatActivity {
 
         }
 
+        //ASYNCHRONOUS TASKS THAT FILL THE ListViews WITH EVENT DATA FROM THE DATABASE:
+
+        //FOR THE "ALLE" TAB:
         private class DownloadTaskAll extends AsyncTask<String, Integer, String> {
             String data = null;
 
@@ -443,7 +446,7 @@ public class EventTabsActivity extends AppCompatActivity {
             }
         }
 
-
+        //FOR THE "HØY" TAB:
         private class DownloadTaskHigh extends AsyncTask<String, Integer, String> {
             String data = null;
 
@@ -515,7 +518,7 @@ public class EventTabsActivity extends AppCompatActivity {
             }
         }
 
-
+        //FOR THE "MIDDELS" TAB:
         private class DownloadTaskMedium extends AsyncTask<String, Integer, String> {
             String data = null;
 
@@ -587,7 +590,7 @@ public class EventTabsActivity extends AppCompatActivity {
             }
         }
 
-
+        //FOR THE "LAV" TAB:
         private class DownloadTaskLow extends AsyncTask<String, Integer, String> {
             String data = null;
 
