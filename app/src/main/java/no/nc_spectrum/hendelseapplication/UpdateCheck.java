@@ -83,19 +83,12 @@ public class UpdateCheck extends Service{               //service to continuousl
     private static boolean isAppOpen(Context context) {         //function to see if app is open and in use
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> services = activityManager.getRunningTasks(Integer.MAX_VALUE);
-        if (services.get(0).topActivity.getPackageName().toString().equalsIgnoreCase(context.getPackageName().toString())) {
-            return true;                    //returns true if it is
-        }else {
-            return false;
-        }
+
+        return (services.get(0).topActivity.getPackageName().equalsIgnoreCase(context.getPackageName()));
     }
 
     public boolean isAppRunning(){                  //function to see if app is open on any page or login-screen
-        if(EventInfoActivity.isRunning == true || EventTabsActivity.isRunning == true || MainActivity.isRunning == true || SettingsActivity.isRunning == true){
-            return true;                    //returns true if it is
-        }else{
-            return false;
-        }
+        return (EventInfoActivity.isRunning || EventTabsActivity.isRunning || MainActivity.isRunning || SettingsActivity.isRunning);
     }
 
     public static void nullify(Context c){  //function used to remove active notifications and reset counter for them and events
@@ -148,8 +141,7 @@ public class UpdateCheck extends Service{               //service to continuousl
     }
 
     public static void cancelNotifications(Context ctx) {       //function to remove all active notifications
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager nMgr = (NotificationManager) ctx.getSystemService(ns);  //creates object to hold notifications
+        NotificationManager nMgr = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);  //creates object to hold notifications
         nMgr.cancelAll();                                           //cancels all notifications in object
     }
 
@@ -193,19 +185,18 @@ public class UpdateCheck extends Service{               //service to continuousl
         }
 
         protected void onPostExecute(String s) {                //function to start after the previous function
-            String err=null;                                    //variable in case of error
+            String err;                                    //variable in case of error
             try {
                 JSONObject root = new JSONObject(s);             //creates JSONobject with the string-return from doInBackground
                 //creates open object to take in the object from the JSONobject above, used to see if it is an object or an array
                 Object objektet = new JSONTokener(root.getString("oppdatert")).nextValue();
 
                 JSONArray noenoe = null;
-                JSONObject uforandret = null;
 
                 if(objektet instanceof JSONArray) {         //if the object is a JSON-array, means it found update(s)
                     noenoe = (JSONArray) objektet;          //creates the JSON array
-                }else if(objektet instanceof JSONObject) {  //if it's a JSON object means it didn't find any updates
-                    uforandret = root.getJSONObject("oppdatert");   //this is redundant and not used
+                }else if(objektet instanceof JSONObject) {  //if it's a JSON object, means it didn't find any updates
+                    return;
                 }else {             //this is shown if something is wrong and it couldn't find any response from the server:
                     Toast.makeText(getApplicationContext(), "Var hverken array eller objekt!", Toast.LENGTH_LONG).show();
                 }
