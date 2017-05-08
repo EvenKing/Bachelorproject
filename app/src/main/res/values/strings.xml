@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hendelse Application</string>
+    <string name="app_name">Hendelse App</string>
     <string name="action_settings">Innstillinger</string>
     <string name="action_refresh">Oppdater</string>
     <string name="action_logout">Logg Ut</string>

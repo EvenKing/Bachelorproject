@@ -119,7 +119,7 @@ public class EventTabsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
+        // Handle toolbar item clicks here. The toolbar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
@@ -127,21 +127,21 @@ public class EventTabsActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) { // When "Settings" is pressed
             Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
+            startActivity(intent); //Starts "SettingsActivity"
             return true;
         }
         else if(id == R.id.action_logout){ //When "Log Out" is pressed, it kills the current activity and the notification service and launches the Login Activity
             Intent intent = new Intent(this, MainActivity.class);
             UpdateCheck.loggedIn = false;
-            startActivity(intent);
+            startActivity(intent); //Returns to "MainActivity"
             finish();
             return true;
         }
-        else if(id == R.id.action_refresh){ //Restarts current activity
+        else if(id == R.id.action_refresh){ //Restarts current activity.
             Intent i = new Intent(this, EventTabsActivity.class);
             i.putExtra("userID", userID);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
+            startActivity(i); //Restarts "EventTabsActivity"
             finish();
             return true;
         }

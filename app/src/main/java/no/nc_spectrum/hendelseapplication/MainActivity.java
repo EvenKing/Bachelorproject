@@ -65,15 +65,15 @@ public class MainActivity extends AppCompatActivity {
 
         BackGround b = new BackGround();
 
-        if(!isInteger(phoneNumber)){
+        if(!isInteger(phoneNumber)){ //to prevent SQL injections
             Toast.makeText(getApplicationContext(), "Brukernavn eller passord er feil!", Toast.LENGTH_LONG).show();
         }
         else if(!phoneNumber.isEmpty() && !password.isEmpty()) {
             if(isMyServiceRunning(UpdateCheck.class)){
                 UpdateCheck.loggedIn = false;
-                stopService(new Intent(MainActivity.this, UpdateCheck.class));
-            }
-            b.execute(phoneNumber, password);
+                stopService(new Intent(MainActivity.this, UpdateCheck.class)); //stops notification service when button pressed
+            }                                      //this is to prevent notifications from being sent when invalid credentials are filled in
+            b.execute(phoneNumber, password); //service is started again here...
         }
         else {
             Toast.makeText(getApplicationContext(), "Skriv inn brukernavn og passord!", Toast.LENGTH_LONG).show();
@@ -194,9 +194,7 @@ public class MainActivity extends AppCompatActivity {
                     ii.putExtra("loggedin", true);
 
                     Log.i(MainActivity.class.getSimpleName()," Har laget Intent!");
-
                     startService(ii);
-
                     finish(); //dreper main-activity
 
                 } else {
