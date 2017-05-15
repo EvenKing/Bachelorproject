@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         phoneEditText = (EditText)findViewById(R.id.phoneEditText);
         pwdEditText = (EditText) findViewById(R.id.passwordEditText);
 
-        isRunning = true;
+        isRunning = true; //Used to check if the app is active (in the foreground)
     }
 
     protected void onResume(){
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     class BackGround extends AsyncTask<String, String, String> {
 
         @Override
-        protected String doInBackground(String... params) {
+        protected String doInBackground(String... params) { //Checks login credentials and launches EventTabs if they match
             String name = params[0];
             String password = params[1];
             String data="";
@@ -180,12 +180,12 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent i = new Intent(context, EventTabsActivity.class);
 
-                    i.putExtra("userName", NAME); //brukes ikke
-                    i.putExtra("userPass", PASSWORD); //brukes ikke
-                    i.putExtra("err", err); //brukes ikke
-                    i.putExtra("userID", USERID);
+                    i.putExtra("userName", NAME); //NOT USED, only left here for further development purposes
+                    i.putExtra("userPass", PASSWORD); //NOT USED
+                    i.putExtra("err", err); //NOT USED
+                    i.putExtra("userID", USERID); //Sent to "EventTabs" because it is needed for downloading of the event data via the fileserver
 
-                    startActivity(i);
+                    startActivity(i); //Starts "EventTabs" activity
 
                     //Starts notification service
                     ii = new Intent(getBaseContext(), UpdateCheck.class);
@@ -194,17 +194,17 @@ public class MainActivity extends AppCompatActivity {
                     ii.putExtra("loggedin", true);
 
                     Log.i(MainActivity.class.getSimpleName()," Har laget Intent!");
-                    startService(ii);
+                    startService(ii); //Starter tjenesten her
                     finish(); //dreper main-activity
 
                 } else {
                     String errorMsg = user_data.getString("error_msg");
-                    Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show(); //viser feilmelding på skjermen
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
                 String errorMsg = "onPostExecution Exception: " + e.getMessage();
-                Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show(); //viser feilmelding på skjermen
             }catch (NullPointerException e){
                 e.printStackTrace();
                 err = "Nullpointerexception: " + e.getMessage();

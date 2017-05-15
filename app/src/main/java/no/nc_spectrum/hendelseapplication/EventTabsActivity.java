@@ -67,11 +67,11 @@ public class EventTabsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        userID = intent.getStringExtra("userID");
+        userID = intent.getStringExtra("userID"); //fetches userID to be used in downloadURL
 
         isRunning = true;
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); //Loads toolbar
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -111,7 +111,7 @@ public class EventTabsActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) { //inflates toolbar layout
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_event_tabs, menu);
         return true;
@@ -186,24 +186,24 @@ public class EventTabsActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, //Inflatess Fragment layout according to the selected tab
                                  Bundle savedInstanceState) {
-            if(getArguments().getInt(ARG_SECTION_NUMBER) == 1){
+            if(getArguments().getInt(ARG_SECTION_NUMBER) == 1){ //FOR THE "ALL" TAB
                 View rootView = inflater.inflate(R.layout.fragment_sub_page01, container, false);
 
                 DownloadTaskAll downloadTaskAll = new DownloadTaskAll();
-                downloadTaskAll.execute(strUrl);
+                downloadTaskAll.execute(strUrl); //FILLS LIST HERE
                 mListViewAll = (ListView) rootView.findViewById(R.id.lv_events_all);
 
                 mListViewAll.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) { //LISTENS TO A LIST ITEM CLICK
                         try {
                             HashMap<String, Object> event = findHashMapAt(position, allEvents);
 
                             //Starts new activity
                             Intent i = new Intent(getActivity(), EventInfoActivity.class);
-                            i.putExtra("event", event);
+                            i.putExtra("event", event); //Sends event data to "EventInfo"
 
-                            startActivity(i);
+                            startActivity(i); //Starts "EventInfo" activity
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -213,25 +213,25 @@ public class EventTabsActivity extends AppCompatActivity {
 
                 return rootView;
             }
-            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2){
+            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2){ //FOR THE "HIGH" TAB
                 View rootView = inflater.inflate(R.layout.fragment_sub_page02, container, false);
 
                 DownloadTaskHigh downloadTaskHigh = new DownloadTaskHigh();
-                downloadTaskHigh.execute(strUrl);
+                downloadTaskHigh.execute(strUrl); //FILLS LIST HERE
 
                 mListViewHigh = (ListView) rootView.findViewById(R.id.lv_events_high);
 
                 mListViewHigh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) { //LISTENS TO A LIST ITEM CLICK
                         try {
                             HashMap<String, Object> event = findHashMapAt(position, highEvents);
 
                             //Starts new activity
                             Intent i = new Intent(getActivity(), EventInfoActivity.class);
-                            i.putExtra("event", event);
+                            i.putExtra("event", event); //Sends event data to "EventInfo"
 
-                            startActivity(i);
+                            startActivity(i); //Starts "EventInfo" activity
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -241,25 +241,25 @@ public class EventTabsActivity extends AppCompatActivity {
 
                 return rootView;
             }
-            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 3){
+            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 3){ //FOR THE "MEDIUM" TAB
                 View rootView = inflater.inflate(R.layout.fragment_sub_page03, container, false);
 
                 DownloadTaskMedium downloadTaskMedium = new DownloadTaskMedium();
-                downloadTaskMedium.execute(strUrl);
+                downloadTaskMedium.execute(strUrl); //FILLS LIST HERE
 
                 mListViewMedium = (ListView) rootView.findViewById(R.id.lv_events_medium);
 
                 mListViewMedium.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) { //LISTENS TO A LIST ITEM CLICK
                         try {
                             HashMap<String, Object> event = findHashMapAt(position, mediumEvents);
 
                             //Starts new activity
                             Intent i = new Intent(getActivity(), EventInfoActivity.class);
-                            i.putExtra("event", event);
+                            i.putExtra("event", event); //Sends event data to "EventInfo"
 
-                            startActivity(i);
+                            startActivity(i); //Starts "EventInfo" activity
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -270,25 +270,25 @@ public class EventTabsActivity extends AppCompatActivity {
                 return rootView;
             }
 
-            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 4){
+            else if(getArguments().getInt(ARG_SECTION_NUMBER) == 4){ //FOR THE "LOW" TAB
                 View rootView = inflater.inflate(R.layout.fragment_sub_page04, container, false);
 
                 DownloadTaskLow downloadTaskLow = new DownloadTaskLow();
-                downloadTaskLow.execute(strUrl);
+                downloadTaskLow.execute(strUrl); //FILLS LIST HERE
 
                 mListViewLow = (ListView) rootView.findViewById(R.id.lv_events_low);
 
                 mListViewLow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) { //LISTENS TO A LIST ITEM CLICK
                         try {
                             HashMap<String, Object> event = findHashMapAt(position, lowEvents);
 
                             //Starts new activity
                             Intent i = new Intent(getActivity(), EventInfoActivity.class);
-                            i.putExtra("event", event);
+                            i.putExtra("event", event); //Sends event data to "EventInfo"
 
-                            startActivity(i);
+                            startActivity(i); //Starts "EventInfo" activity
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -298,7 +298,7 @@ public class EventTabsActivity extends AppCompatActivity {
 
                 return rootView;
             }
-            else{
+            else{ //JUST A PRECAUTION
                 View rootView = inflater.inflate(R.layout.fragment_sub_page01, container, false);
 
                 DownloadTaskAll downloadTaskAll = new DownloadTaskAll();
@@ -367,7 +367,7 @@ public class EventTabsActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 Log.d("Exception Dloading url", e.toString());
-                return "Exception: "+ e.toString(); //TODO: Modify this?
+                return "Exception: "+ e.toString();
             }
             return data;
 

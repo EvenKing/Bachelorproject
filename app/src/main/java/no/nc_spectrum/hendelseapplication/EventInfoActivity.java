@@ -29,7 +29,7 @@ public class EventInfoActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.eventinfo_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Adds back button to the toolbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         //Fetches TextViews and ImageView
@@ -64,7 +64,7 @@ public class EventInfoActivity extends AppCompatActivity {
         tv_infotext.setText(event.get("info_text").toString());
         tv_hostname.setText(event.get("hostname").toString());
 
-        iv_priorityicon.setImageResource((int) event.get("priority_icon"));
+        iv_priorityicon.setImageResource((int) event.get("priority_icon")); //Sets the priority icon
 
         isRunning = true;
 
@@ -87,7 +87,7 @@ public class EventInfoActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
+    public boolean onSupportNavigateUp() { //Needed for the toolbar's back button
         onBackPressed();
         return true;
     }

@@ -22,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Adds a "back" button to the toolbar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() { //When the devices back button is pressed
+    public boolean onSupportNavigateUp() { //Needed for the toolbar's back button
         onBackPressed();
         return true;
     }
