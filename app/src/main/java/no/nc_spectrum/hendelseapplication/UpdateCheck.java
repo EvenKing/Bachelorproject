@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -29,6 +30,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import no.nc_spectrum.hendelseapplication.SettingsActivity;
+
 /**
  * Created by Bruker on 02.05.2017.
  */
@@ -36,10 +39,10 @@ import java.util.TimerTask;
 public class UpdateCheck extends Service{               //service to continuously run in the background
     int counter = 0;                                        //this variable is actually quite redundant, used for testing
     static int eventlength = 0, notificationCounter = 0;        //holds amount of new events and notifications on screen
-    static final int UPDATE_INTERVAL = 60000; //TODO: Change time interval between checks here  here we define time interval for checks
+    static final int UPDATE_INTERVAL = 20000; //TODO: Change time interval between checks here  here we define time interval for checks
     private Timer timer = new Timer();                          //the timer-object to initialize the task-interval
     private String priorityLvl = "1"; //TODO: Change priority level for notifications here!     priority of event to be found
-    String uid, cid, sid = "", signa = "", timestamp = "";      //these variables hold information on events and the user
+    String uid, cid, cid2, sid = "", signa = "", timestamp = "";      //these variables hold information on events and the user
     Context nctx;                       //context, created here in order to use for onDestroy()-function
     static boolean loggedIn;            //variable for whether or not to restart this service when app is destroyed/closed
     private String updateURL = "http://mobapp.ncs.no/updated.php";   //variable holds address to php-file to check for updates
@@ -98,18 +101,11 @@ public class UpdateCheck extends Service{               //service to continuousl
     }
 
     public void sendNotification(){         //function to send notification to user
-
         //creates the notification with the notification-icon in the task-bar
-        NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this).setSmallIcon(R.drawable.notification_icon);
-
+        NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.notification_icon);
         nctx = this.getApplicationContext();        //gets the application context
 
-        /*if(isAppOpen(nctx)) {
-            cancelNotifications(nctx);
-            eventlength = 0;
-            notificationCounter = 0;
-            return;
-        }else */
         if(eventlength > 1 || notificationCounter > 1){  //if there is already a notification active, or more than one new event
             cancelNotifications(nctx);                  //removes all other notifications
                                         //sets title and content of new notification
@@ -117,7 +113,8 @@ public class UpdateCheck extends Service{               //service to continuousl
         }else{                          //if there are no notifications active, and only one new event
             ++notificationCounter;      //updates counter for notifications
                                         //sets title and content for the notification to show that specific event
-            mBuilder.setContentTitle(getString(R.string.notification_title_single)).setContentText(getString(R.string.sid_hint) + sid + ", " + getString(R.string.cid_hint) + cid + ", " + getString(R.string.timestamp_hint) + timestamp);
+            mBuilder.setContentTitle(getString(R.string.notification_title_single)).setContentText(getString(R.string.sid_hint) + sid + ", " + getString(R.string.cid_hint) + cid + ", "
+                    + getString(R.string.timestamp_hint) + timestamp);
         }
 
         //sets it so when user taps on notification they're sent to the login-screen:
@@ -141,7 +138,8 @@ public class UpdateCheck extends Service{               //service to continuousl
     }
 
     public static void cancelNotifications(Context ctx) {       //function to remove all active notifications
-        NotificationManager nMgr = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);  //creates object to hold notifications
+        //creates object to hold notifications:
+        NotificationManager nMgr = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         nMgr.cancelAll();                                           //cancels all notifications in object
     }
 
@@ -157,7 +155,7 @@ public class UpdateCheck extends Service{               //service to continuousl
                                                     //String used to hold parameters to send to php-file
                 String urlParams = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(uID, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("cid", "UTF-8") + "=" + URLEncoder.encode(cID, "UTF-8");
-                urlParams += "&" + URLEncoder.encode("priority", "UTF-8") + "=" + URLEncoder.encode(priorityLvl, "UTF-8"); //TODO: change priority number for desired notfications
+                urlParams += "&" + URLEncoder.encode("priority", "UTF-8") + "=" + URLEncoder.encode(priorityLvl, "UTF-8");
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();     //opens connection to server
                 httpURLConnection.setDoOutput(true);                        //sets it so we send to the server
@@ -220,6 +218,8 @@ public class UpdateCheck extends Service{               //service to continuousl
                         Log.i(UpdateCheck.class.getSimpleName(), "Fant " + (noenoe.length()-1) + " updates!");  //used for testing
                         eventlength += noenoe.length() - 1;                 //adds to the counter for amount of new events
                     }
+                    oppdatert = noenoe.getJSONObject(noenoe.length()-1);
+                    cid2 = oppdatert.getString("cid");
                     sendNotification();                     //calls on the function to send a new notification
                 }
 

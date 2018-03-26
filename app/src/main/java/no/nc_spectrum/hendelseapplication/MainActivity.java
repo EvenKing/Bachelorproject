@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             try {
 
                 URL url = new URL(strUrl);
+
                 String urlParams = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
                 urlParams += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
 

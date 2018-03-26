@@ -2,139 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\506b33520599dd6c73753eeef4675dbad5de3ab2\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_a24c013e85d2c889c371b7d07011915c3a421e10.jar" />
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_15277201f39945ed9e94c635eaa3782aeb5abc85\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\2c780916022c22f116276c730ce7ca3e290c234f\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_dfc09da8db946608ead6938cf858b90243a8c174.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\71bdb4ae3c9d292b89515fc9747c13a44ad1c636\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_464a3c513afbdb4216d75bc96e12e99e2b1d38bb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\dc0d91ee8bc7347dba9c58c52f80629f04df0696\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_bc31d0345152b2d9f254ddbf4533fff3bc1ee1e1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_c908d73b54fa1274764433f2125ac614db8f9dcd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_b9f2fad9a057076cbfd2b3aa6e97b4512b0c6c5f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\d514e71802c30937c85f52f028e4ae9b0e83b5ee\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_a45f275b2226d0e0e77be3160d065c0397545b9e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\06066531d58cd5bf43ec1b8fe7dc021abcda18e3\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_85f79b1e21821dd9acd6b44ef4f9bd963ae8d61a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\949d38b19af5e9164dd26b1b4cd12eff632b45c4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_ae6c58b3a52ddf7ee22f8caa163375dd1cb73ea8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\ee4e6597c9e00c4db9319a20235ca2fe6d535eaf\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_bb64fc757412b9e3d851e2ac4b20a31e08936c81.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\260185880a7ab9f20f577eebecfc9a9646f360c5\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_f41699b93191fac48506a1e665ce75c93415de39.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\32e8ba9bb439b9d989e2dc13fbd32b0e4b38670a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_84aa59c643e30e87d34354fba11cfec4fcbe2766.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\ecb6722ac311b6204c7b528b16e03263edd0461f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_58d25879fbc04d6e7c4697df565f9f2bcf6f5be8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\a58a2cb368a1f7d984ed6f4396dae20e2ec09200\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_4d262186af4dc06b113f7f515c5cbab4d0e20e76.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Anne\.android\build-cache\afbe18f5ab621bfc6e4d2100deb8ad0afe6a93d1\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="C:\Users\Anne\AndroidStudioProjects\TESTING\HendelseApplicationTESTKOPI\app\build\intermediates\pre-dexed\debug\classes_e30362a111a55f79babcda97676804d35731626f.jar" />
+        sha1="f191b35d62a94a54f453c723f22bb23a96d0c6d8">
+        <dex dex="C:\Users\Bruker\Documents\Bachelor\Git\HendelseApplicationTESTKOPI\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_ac7dc3e6abc6d2626c8846ca932427cc73d3e2ad\classes.dex" />
     </item>
 
 </items>
